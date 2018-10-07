@@ -1,7 +1,14 @@
-import Selector from '../Selector/Selector.js'
+import SetSelector from '../SetSelector/SetSelector';
+import { html, render } from 'lit-html';
+
 export default class App {
+
+    renderSetSelector() {
+        render(html`${SetSelector()}`, document.body);
+    };
+
     renderPage() {
-        return `${Selector()}`;
+        return `${this.renderSetSelector()}`;
     }
 }
 

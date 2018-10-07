@@ -1,25 +1,15 @@
-import { html, render } from 'lit-html';
+import { html } from 'lit-html';
 import './selector.css';
 
-import { getMtgSets } from '../../utils/mtgcaller';
-
-const Selector = () => render(markup, document.body);
-
-const setList = getMtgSets()
-    .then(resp =>
-        JSON.parse(resp)
-            .sets
-            .filter(set => { return set.releaseDate > "2015-07-13" })
-            .map(set => html`<option value="${set.name}">${set.name}(${set.releaseDate})</option>`)
-    )
-    .catch(err => console.log(err));
-
-const markup = html`
-    <div class="what-up-yo">Let's start building Magic</div>
-    <select id="set">
-        <option value="">Choose a Set</option>
-        ${setList}
-    </select>
-`
+// Options is an array of Objects 
+//of type [{class: String, value: String, children: String}]
+const Selector = (options) => html`
+    <select class="selector">
+      ${options.map(option => html`
+        <option class="${option.class}" value="${option.value}">
+            ${option.children}
+        </option>`)
+      }
+    </select>`
 
 export default Selector;
