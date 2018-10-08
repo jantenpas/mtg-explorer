@@ -3,13 +3,13 @@ import { html, render } from 'lit-html';
 
 export default class App {
 
-    renderSetSelector() {
-        render(html`${SetSelector()}`, document.body);
-    };
+  renderSetSelector() {
+    render(html`${SetSelector()}`, document.body);
+  };
 
-    renderPage() {
-        return `${this.renderSetSelector()}`;
-    }
+  renderPage() {
+    return `${this.renderSetSelector()}`;
+  }
 }
 
 const app = new App();

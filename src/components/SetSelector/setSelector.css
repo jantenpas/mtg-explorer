@@ -9,3 +9,11 @@
     grid-gap: 6px;
     border: solid black 2px;
 }
+
+#cards {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 12px;
+  justify-content: center;
+}
